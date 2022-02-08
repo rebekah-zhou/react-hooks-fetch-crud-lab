@@ -1,10 +1,20 @@
 import React from "react";
+import QuestionItem from './QuestionItem'
 
-function QuestionList() {
+function QuestionList({ questions, onDeleteQuestion, onUpdateQ }) {
+
   return (
     <section>
       <h1>Quiz Questions</h1>
-      <ul>{/* display QuestionItem components here after fetching */}</ul>
+      <ul>
+        {questions.map(q => {
+          return <QuestionItem 
+          key={q.id} 
+          question={q} 
+          onDeleteQuestion={onDeleteQuestion}
+          onUpdateQ={onUpdateQ} />
+        })}
+      </ul>
     </section>
   );
 }
